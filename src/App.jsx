@@ -1,40 +1,45 @@
 import { useState } from 'react'
 import axios from 'axios';
-import WeatherApp from './weather_app/WeatherApp';
+import WeatherData from './weather_app/WeatherData';
+import './App.css'
+import CurrentWeather from './weather_app/CurrentWeather';
+import WeatherCardGrid from './components/WeatherCardGrid';
+import SearchBar from './components/SearchBar';
+import ForecastData from './weather_app/ForecastData';
 
 function App() {
 
   const [data, setData] = useState({})
-  const [location, setLocation] = useState("")
+  const [showCurrentWeather, setShowCurrentWeather] = useState(true);
+  // const [location, setLocation] = useState("")
 
-  const API_KEY = "11280978eb418f97b7361eaf8c6b459c"
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`
-
-  const searchLocation = (event) => {
-    if (event.key === "Enter") {
-      axios.get(url).then((response) => {
-        setData(response.data)
-        console.log(response.data);
-      })
-      setLocation("")
-    }
+  const searchEvent = (weatherData, location) => {
+    setData(weatherData);
+    setShowCurrentWeather(false);
   }
 
+
   return (
-    <div className='w-full h-full relative'>
+    <div className='w-100 h-100 position-relative'>
       <div className='text-center p-4'>
-        <input type="text"
-          className='py-3 px-6 w-[700px] text-lg rounded-3xl border-gray-200 text-gray-600 placeholder:text-gray-400 focus:outline-none bg-white-600/100 shadow-md'
-          placeholder='Search by city'
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-          onKeyDownCapture={searchLocation} />
-
+        <SearchBar onSearch={searchEvent} />
+        <ForecastData />
       </div>
-
-      <WeatherApp weatherData={data} />
     </div>
+
+
   );
 }
 
+// <div className='w-100 h-100 position-relative'>
+// <div className='text-center p-4'>
+//   <SearchBar onSearch={searchEvent} />
+// </div>
+// {showCurrentWeather && <CurrentWeather />}
+// <WeatherData weatherData={data} />
+// </div>
+
 export default App
+
+
+
