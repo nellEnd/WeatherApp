@@ -1,30 +1,20 @@
 import { useState } from 'react'
-import axios from 'axios';
-import WeatherData from './weather_app/WeatherData';
 import './App.css'
-import CurrentWeather from './weather_app/CurrentWeather';
-import WeatherCardGrid from './components/WeatherCardGrid';
 import SearchBar from './components/SearchBar';
 import ForecastData from './weather_app/ForecastData';
+import CurrentWeather from './weather_app/CurrentWeather';
+import WeatherCardGrid from './components/WeatherCardGrid';
 
 function App() {
 
-  const [data, setData] = useState({})
-  const [showCurrentWeather, setShowCurrentWeather] = useState(true);
-  // const [location, setLocation] = useState("")
-
-  const searchEvent = (weatherData, location) => {
-    setData(weatherData);
-    setShowCurrentWeather(false);
-  }
-
+  const [locationState, setLocationState] = useState(undefined)
 
   return (
-    <div className='w-100 h-100 position-relative'>
-      <div className='text-center p-4'>
-        <SearchBar onSearch={searchEvent} />
-        <ForecastData />
-      </div>
+    <div >
+      {/* <WeatherCardGrid /> */}
+      <SearchBar onSearch={setLocationState} />
+      <CurrentWeather location={locationState} />
+      <ForecastData location={locationState} />
     </div>
 
 
