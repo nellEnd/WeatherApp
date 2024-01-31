@@ -1,11 +1,10 @@
-import '../weather_app/WeatherApp.css'
+import './WeatherApp.css'
 import { useState } from 'react'
-import { Col, Row, Container, Button, Modal } from 'react-bootstrap'
+import { Col, Row, Modal } from 'react-bootstrap'
 
 
 const WeatherItem = ({ day }) => {
 
-    //const [openHours, setOpenHours] = useState(false);
 
     const [lgShow, setLgShow] = useState(false);
 
@@ -35,6 +34,7 @@ const WeatherItem = ({ day }) => {
 
         return convertedDate
     };
+
 
     const kmHourConvert = (kmPerHour) => {
         const converter = (kmPerHour) = kmPerHour * 1000 / 3600
@@ -141,35 +141,5 @@ const WeatherItem = ({ day }) => {
     );
 
 }
-
-
-{/* <Col className='m-2'>
-    <Row className='d-flex justify-content-center'>
-        <p>{getDayName(day.date)}</p>
-    </Row>
-    <Row className='justify-content-center'>
-        <img src={day.day.condition.icon} style={{ maxWidth: '65px' }} />
-    </Row>
-    <Row className='d-flex align-items-center'>
-        <p>{Math.round(day.day.avgtemp_c)}°C</p>
-    </Row>
-    <Row>
-        <Button onClick={() => {
-            setOpenHours(!openHours)
-        }}>hej</Button>
-    </Row>
-</Col>
-{
-    openHours &&
-    day.hour.map((hour, index) => (
-
-        <Col key={index}>
-            <p>{hour.time.split(' ')[1]}: {Math.round(hour.temp_c)}°C</p>
-            <img src={hour.condition.icon} style={{ maxWidth: '25px' }} />
-        </Col>
-    )
-    )
-} */}
-
 
 export default WeatherItem

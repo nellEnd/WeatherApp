@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './WeatherApp.css'
 
@@ -52,8 +52,8 @@ const CurrentWeather = ({ location }) => {
                                     </div>
                                 </Col>
                                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                    <p style={{ fontSize: '19px'}}>{weatherData.current.condition.text}</p>
-                                    <p style={{ fontSize: '15px', marginLeft:'40px' }}>
+                                    <p style={{ fontSize: '19px' }}>{weatherData.current.condition.text}</p>
+                                    <p style={{ fontSize: '15px', marginLeft: '40px' }}>
                                         {weatherData.location.localtime}
                                     </p>
 
@@ -67,24 +67,5 @@ const CurrentWeather = ({ location }) => {
         </>
     );
 }
-
-
-{/* <div>
-                        <div className="d-flex justify-content-start align-items-center">
-                            <Card style={{ width: '26rem', height: '18rem' }} className='text-center custom-bg-Rowor'>
-                                <Card.Body className="d-flex justify-content-center align-items-center">
-                                    <div>
-                                        <img src={weatherData.current.condition.icon} style={{ maxWidth: '50px' }} />
-                                        <Card.Text className="mb-2 text-muted">{weatherData.location.name}, {weatherData.location.country}</Card.Text>
-                                        <Card.Text className='h1'>{Math.round(weatherData.current.temp_c)}°C</Card.Text>
-                                        <Card.Text className='text-muted'>{weatherData.location.localtime}</Card.Text>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </div>
-
-                    </div> */}
-
-
 
 export default CurrentWeather

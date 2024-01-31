@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import '../weather_app/WeatherApp.css'
+
+import './WeatherApp.css'
 
 const SearchBar = ({ onSearch }) => {
 
@@ -20,8 +20,5 @@ const SearchBar = ({ onSearch }) => {
         </div>
     );
 }
-
-
-
 
 export default SearchBar;

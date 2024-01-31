@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import SearchBar from './components/SearchBar';
-import ForecastData from './weather_app/ForecastData';
-import CurrentWeather from './weather_app/CurrentWeather';
-import WeatherCardGrid from './components/WeatherCardGrid';
+import ForecastData from './components/ForecastData';
+import CurrentWeather from './components/CurrentWeather';
 
 function App() {
 
@@ -11,23 +10,12 @@ function App() {
 
   return (
     <div >
-      {/* <WeatherCardGrid /> */}
       <SearchBar onSearch={setLocationState} />
       <CurrentWeather location={locationState} />
       <ForecastData location={locationState} />
     </div>
-
-
   );
 }
-
-// <div className='w-100 h-100 position-relative'>
-// <div className='text-center p-4'>
-//   <SearchBar onSearch={searchEvent} />
-// </div>
-// {showCurrentWeather && <CurrentWeather />}
-// <WeatherData weatherData={data} />
-// </div>
 
 export default App
 
