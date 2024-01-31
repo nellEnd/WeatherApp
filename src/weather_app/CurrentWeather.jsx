@@ -48,12 +48,17 @@ const CurrentWeather = ({ location }) => {
                                         </p>
                                     </div>
                                     <div className='mb-4 d-flex align-items-center'>
-                                        <img src={weatherData.current.condition.icon} style={{ maxWidth: '65px', marginLeft: '20px' }} />
+                                        <img src={weatherData.current.condition.icon} style={{ maxWidth: '67px', marginLeft: '50px' }} />
                                     </div>
                                 </Col>
-                                <p style={{ fontSize: '15px' }}>
-                                    {weatherData.location.localtime}
-                                </p>
+                                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                    <p style={{ fontSize: '19px'}}>{weatherData.current.condition.text}</p>
+                                    <p style={{ fontSize: '15px', marginLeft:'40px' }}>
+                                        {weatherData.location.localtime}
+                                    </p>
+
+                                </div>
+
                             </Row>
                         </div>
 

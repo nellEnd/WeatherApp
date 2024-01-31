@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import axios from 'axios'
-
-
+import '../weather_app/WeatherApp.css'
 
 const SearchBar = ({ onSearch }) => {
+
 
     const searchEvent = (event) => {
         if (event.key === 'Enter') {
@@ -12,9 +11,9 @@ const SearchBar = ({ onSearch }) => {
     };
 
     return (
-        <div className='d-flex justify-content-end mt-3'>
-            <input style={{ width: '500px', border: 'white' }} type="text"
-                className='rounded-pill'
+        <div className='d-flex justify-content-end mt-4' style={{ marginRight: '35px' }}>
+            <input style={{ width: '500px', height:'32px', borderRadius: '30px', border: '2px solid #afafaf', outline:'none' }} type="text"
+                className='custom-font'
                 placeholder='Search by city...'
                 onKeyDown={searchEvent}
             />

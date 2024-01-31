@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
 import Card from 'react-bootstrap/Card';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './WeatherApp.css'
 import WeatherItem from '../components/WeatherItem';
@@ -11,6 +11,8 @@ const ForecastData = ({ location }) => {
 
     const [currentWeather, setCurrentWeather] = useState(null)
     const [forecastData, setForecastData] = useState(null)
+
+
     console.log('Location i forecastdata: ', location);
 
 
@@ -35,21 +37,36 @@ const ForecastData = ({ location }) => {
 
     console.log('Current weather: ', currentWeather);
 
-
+    // w-100 p-2 d-flex justify-content-center align-items-top custom-font
     return (
-        <div className="container-fluid">
+        <Container style={{
+            marginTop: '100px',
+        }}>
             {forecastData && (
-                <ListGroup horizontal className='w-100 p-2 d-flex justify-content-center align-items-top'>
+                <Row>
                     {forecastData.forecast.forecastday.map((day, index) => (
-                        <ListGroupItem className='custom-bg-color mx-2' key={index}>
+                        <Col key={index}>
+                            <WeatherItem day={day} />
+                        </Col>
+                    ))}
+                </Row>
+            )}
+        </Container>
+    );
+};
+
+{/* <ListGroup horizontal style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}>
+                    {forecastData.forecast.forecastday.map((day, index) => (
+                        <ListGroupItem className='' key={index}>
                             <WeatherItem day={day} />
                         </ListGroupItem>
                     ))}
-                </ListGroup>
+                </ListGroup> */}
 
-            )}
-        </div>
-    );
-};
+
+
 
 export default ForecastData
